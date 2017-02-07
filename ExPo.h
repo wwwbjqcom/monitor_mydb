@@ -115,8 +115,8 @@ void cout_value(point_list *pl)
 
 	//NET
 	cout.precision(1);
-	cout << right << setw(4) << float(pl[27].point_dic->current_data/1024/1024) << "m" << setw(1) << " ";
-	cout << right << setw(4) << float(pl[28].point_dic->current_data/1024/1024) << "m";
+	cout << right << setw(4) << float(float(pl[27].point_dic->current_data)/1024/1024) << "m" << setw(1) << " ";
+	cout << right << setw(4) << float(float(pl[28].point_dic->current_data)/1024/1024) << "m";
 	cout << "\033[32m"<< "|" <<"\033[0m" << endl;
 }
 
