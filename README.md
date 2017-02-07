@@ -4,3 +4,6 @@ centos/rehat:
 
 ubuntu/debian:
         apt-get install g++ libmysqld-dev -y
+
+cd monitor_mydb;
+# make
