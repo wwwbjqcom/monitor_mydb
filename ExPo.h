@@ -141,7 +141,7 @@ void print_head()
 	cout << "\033[42m" << setw(47) << "Handler" << "\033[32m|\033[0m" ;
 	cout << "\033[31m" << setw(11) << "innodb_log" << "\033[32m|\033[0m";
 	cout << "\033[31m" << setw(8) << "thread" << "\033[32m|\033[0m";
-	cout << "\033[42m" << setw(25) << "CPU" << "\033[32m|\033[0m" << endl;
+	cout << "\033[42m" << setw(25) << "CPU" << "\033[32m|\033[0m" ;
 	cout << "\033[31m" << setw(12) << "NET" << "\033[32m|]033[0m" << endl;
 
 	for(int i=0;i<=178;i++)
