@@ -40,8 +40,8 @@ typedef struct
 {
     string name;
 }HEAD_NAME;
-HEAD_NAME head_name[27]={"ins","upd","del","sel","qus","lok","cdt","ctt"," pr"," rr",
-	"hrf","hrk","hrn","hrp","hrr","rrn","p_f","p_w","wai","con","run","us","sy","id","wa","si","cs"};
+HEAD_NAME head_name[29]={"ins","upd","del","sel","qus","lok","cdt","ctt"," pr"," rr",
+	"hrf","hrk","hrn","hrp","hrr","rrn","p_f","p_w","wai","con","run","us","sy","id","wa","si","cs","sen","rec"};
 
 
 typedef struct
@@ -60,7 +60,7 @@ void obtain_sys_cpu(point_list *pl,Cpu_info *cf,Cpu_info *old_cf);
 //save point for every struct point
 void value_point(point_list *pl)
 {
-	for(int i=0;i<27;i++)
+	for(int i=0;i<29;i++)
 	{
 		data_current *dc = new data_current;
 		pl[i].point_dic = dc;
@@ -111,7 +111,12 @@ void cout_value(point_list *pl)
 	cout << right << setw(3) << pl[23].point_dic->cpu_data << setw(1) << " ";
 	cout << right << setw(3) << pl[24].point_dic->cpu_data << setw(1) << " ";
 	cout << right << setw(3) << pl[25].point_dic->cpu_data << setw(1) << " ";
-	cout << right << setw(5) << pl[26].point_dic->current_data;
+	cout << right << setw(5) << pl[26].point_dic->current_data << "\033[33m" << setw(1) << "|" << "\033[0m";
+
+	//NET
+	cout.precision(1);
+	cout << right << setw(4) << float(pl[27].point_dic->current_data/1024/1024) << "m" << setw(1) << " ";
+	cout << right << setw(4) << float(pl[28].point_dic->current_data/1024/1024) << "m";
 	cout << "\033[32m"<< "|" <<"\033[0m" << endl;
 }
 
@@ -137,8 +142,9 @@ void print_head()
 	cout << "\033[31m" << setw(11) << "innodb_log" << "\033[32m|\033[0m";
 	cout << "\033[31m" << setw(8) << "thread" << "\033[32m|\033[0m";
 	cout << "\033[42m" << setw(25) << "CPU" << "\033[32m|\033[0m" << endl;
+	cout << "\033[31m" << setw(12) << "NET" << "\033[32m|]033[0m" << endl;
 
-	for(int i=0;i<=166;i++)
+	for(int i=0;i<=178;i++)
 	  cout << "\033[32m-\033[0m";
 	cout << endl;
 	cout << left << setw(9) <<"\033[32m" << "time" << "|";
@@ -197,9 +203,13 @@ void print_head()
 	cout << right << "\033[32m" << setw(3) << head_name[23].name << setw(1) << " ";
 	cout << right << "\033[32m" << setw(3) << head_name[24].name << setw(1) << " ";
 	cout << right << "\033[32m" << setw(3) << head_name[25].name << setw(1) << " ";
-	cout << right << "\033[32m" << setw(5) << head_name[26].name;
+	cout << right << "\033[32m" << setw(5) << head_name[26].name << setw(1) << "|";
+
+	//NET
+	cout << right << "\033[32m" << setw(5) << head_name[27].name << setw(1) << " ";
+	cout << right << "\033[32m" << setw(5) << head_name[28].name;
 	cout << "|"<< endl << "\033[0m";
-	for(int i=0;i<=166;i++)
+	for(int i=0;i<=178;i++)
 	    cout << "\033[32m-\033[0m";
 	cout << endl;
 }

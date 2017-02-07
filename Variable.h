@@ -49,6 +49,10 @@ void screen(string variable_name, uint *value,point_list *pl)
 	  save_value(value,pl,19);
 	else if(variable_name == "Threads_running")
 	  save_value(value,pl,20);
+	else if(variable_name == "Bytes_sent")
+	  save_value(value,pl,27);
+	else if(variable_name == "Bytes_received")
+	  save_value(value,pl,28);
 }
 
 

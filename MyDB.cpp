@@ -56,8 +56,8 @@ bool MyDB::exeSQL(string sql)
 {
 	Cpu_info *cf = new Cpu_info;
 	Cpu_info *old_cf = new Cpu_info;
-	point_list *pl = new point_list[27];
-	for(int i=0;i<27;i++)
+	point_list *pl = new point_list[29];
+	for(int i=0;i<29;i++)
 	{
 		pl[i].point_name = head_name[i].name;
 	}
