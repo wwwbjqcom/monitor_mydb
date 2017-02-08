@@ -6,9 +6,9 @@
  * impact: Operation mysql db
  * ******************************************/
 #include <typeinfo>
-#include <fstream>
 //#include <ctime>
 #include <unistd.h>
+#include <fstream>
 #include <iomanip>
 #include <cstdlib>
 #include "MyDB.h"
@@ -57,17 +57,20 @@ bool MyDB::exeSQL(string sql)
 {
 	Cpu_info *cf = new Cpu_info;
 	Cpu_info *old_cf = new Cpu_info;
-	point_list *pl = new point_list[29];
-	for(int i=0;i<29;i++)
+	point_list *pl = new point_list[30];
+	for(int i=0;i<30;i++)
 	{
 		pl[i].point_name = head_name[i].name;
 	}
 	value_point(pl);
 
+	
 	//clock_t delay = 1 * CLOCKS_PER_SEC;
+	
 	for(;;)
 	{
 		//clock_t start = clock();
+		
 		//if mysql_query() successful then retrun 0,else return !0
 		if(mysql_query(connection,sql.c_str()))
 		{
@@ -122,8 +125,7 @@ bool MyDB::exeSQL(string sql)
 			mysql_free_result(result);
 		}
 		while_num++;
-		sleep(1)
-		//clock Consumption of CPU
+		sleep(1);
 		//while(clock() - start <= delay);
 	}
 	return true;
