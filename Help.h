@@ -14,7 +14,8 @@ void show_help()
     cout << setw(5) << "" << "qus: Questions\n";
 
     cout << "LOCK:" << endl;
-    cout << setw(5) << "" << "lok: Innodb_row_lock_current_waits\n";
+    cout << setw(5) << "" << "wai: Innodb_row_lock_current_waits\n";
+	cout << setw(5) << "" << "tim: Innodb_row_lock_time\n";
 
     cout << "tmp_table:" << endl;
     cout << setw(5) << "" << "cdt: Created_tmp_disk_tables\n";
@@ -40,5 +41,8 @@ void show_help()
     cout << "thread:" << endl;
     cout << setw(5) << "" << "con: Threads_connected\n";
     cout << setw(5) << "" << "run: Threads_running\n";
-    
+	
+	cout << "NET:" << endl;
+	cout << setw(5) << "" << "sen: Bytes_sent\n";
+	cout << setw(5) << "" << "rec: Bytes_received\n";
 }
