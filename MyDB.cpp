@@ -7,7 +7,8 @@
  * ******************************************/
 #include <typeinfo>
 #include <fstream>
-#include <ctime>
+//#include <ctime>
+#include <unistd.h>
 #include <iomanip>
 #include <cstdlib>
 #include "MyDB.h"
@@ -63,10 +64,10 @@ bool MyDB::exeSQL(string sql)
 	}
 	value_point(pl);
 
-	clock_t delay = 1 * CLOCKS_PER_SEC;
+	//clock_t delay = 1 * CLOCKS_PER_SEC;
 	for(;;)
 	{
-		clock_t start = clock();
+		//clock_t start = clock();
 		//if mysql_query() successful then retrun 0,else return !0
 		if(mysql_query(connection,sql.c_str()))
 		{
@@ -121,7 +122,9 @@ bool MyDB::exeSQL(string sql)
 			mysql_free_result(result);
 		}
 		while_num++;
-		while(clock() - start <= delay);
+		sleep(1)
+		//clock Consumption of CPU
+		//while(clock() - start <= delay);
 	}
 	return true;
 }
