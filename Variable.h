@@ -16,7 +16,7 @@ void screen(string variable_name, uint *value,point_list *pl)
 	int i=0;
 	for(string name : variable_list)
 	{
-		if(strcmp(variable_name,name))
+		if(variable_name == name)
 		  save_value(value,pl,i);
 		i++;
 	}
