@@ -57,6 +57,14 @@ void print_head();
 string obtain_time();
 void obtain_sys_cpu(point_list *pl,Cpu_info *cf,Cpu_info *old_cf);
 
+
+//print halving line
+void halving_line(int num)
+{
+	if(num>0) halving_line(num-1);
+	cout << "\033[32m-\033[0m";
+}
+
 //save point for every struct point
 void value_point(point_list *pl)
 {
@@ -145,8 +153,7 @@ void print_head()
 	cout << "\033[42m" << setw(25) << "CPU" << "\033[32m|\033[0m" ;
 	cout << "\033[31m" << setw(11) << "NET" << "\033[32m|\033[0m" << endl;
 
-	for(int i=0;i<=182;i++)
-	  cout << "\033[32m-\033[0m";
+	halving_line(182);
 	cout << endl;
 	cout << left << setw(9) <<"\033[32m" << "time" << "|";
 
@@ -210,8 +217,8 @@ void print_head()
 	cout << right << "\033[32m" << setw(5) << head_name[28].name << setw(1) << " ";
 	cout << right << "\033[32m" << setw(5) << head_name[29].name;
 	cout << "|"<< endl << "\033[0m";
-	for(int i=0;i<=182;i++)
-	    cout << "\033[32m-\033[0m";
+
+	halving_line(182);
 	cout << endl;
 }
 
