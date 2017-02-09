@@ -52,10 +52,10 @@ typedef struct
 
 
 
-void save_value(uint *data,point_list *pl,int index);
-void print_head();
-string obtain_time();
-void obtain_sys_cpu(point_list *pl,Cpu_info *cf,Cpu_info *old_cf);
+inline void save_value(uint *data,point_list *pl,int index);
+inline void print_head();
+inline string obtain_time();
+inline void obtain_sys_cpu(point_list *pl,Cpu_info *cf,Cpu_info *old_cf);
 
 
 //print halving line
@@ -66,7 +66,7 @@ void halving_line(int num)
 }
 
 //save point for every struct point
-void value_point(point_list *pl)
+inline void value_point(point_list *pl)
 {
 	for(int i=0;i<30;i++)
 	{
@@ -77,7 +77,7 @@ void value_point(point_list *pl)
 }
 
 //print value
-void cout_value(point_list *pl)
+inline void cout_value(point_list *pl)
 {
 	cout <<  left << "\033[33m" << obtain_time() << setw(1) << "\033[32m|\033[0m";
 	//qps
@@ -129,7 +129,7 @@ void cout_value(point_list *pl)
 	cout << "\033[32m"<< "|" <<"\033[0m" << endl;
 }
 
-string obtain_time()
+inline string obtain_time()
 {
 	time_t rawtime;
 	struct tm * timeinfo;
@@ -141,7 +141,7 @@ string obtain_time()
 
 
 //print head
-void print_head()
+inline void print_head()
 {
 	cout << "\033[42m" << setw(39) << "QPS|" << "\033[0m" ;
 	cout << "\033[31m" << setw(9) << "lock" << "\033[32m|\033[0m" ;
@@ -223,7 +223,7 @@ void print_head()
 }
 
 //save value for every variable
-void save_value(uint *data,point_list *pl,int index)
+inline void save_value(uint *data,point_list *pl,int index)
 {
 	if(!pl[index].point_dic->old_data)
 	{
@@ -244,7 +244,7 @@ void save_value(uint *data,point_list *pl,int index)
 	}
 }
 
-void obtain_sys_cpu(point_list *pl,Cpu_info *cf,Cpu_info *old_cf)
+inline void obtain_sys_cpu(point_list *pl,Cpu_info *cf,Cpu_info *old_cf)
 {
 	//Cpu_info *cf = new Cpu_info;
 
