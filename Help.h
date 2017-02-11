@@ -45,4 +45,12 @@ void show_help()
 	cout << "NET:" << endl;
 	cout << setw(5) << "" << "sen: Bytes_sent\n";
 	cout << setw(5) << "" << "rec: Bytes_received\n";
+
+	cout << "CPU(percentage):" << endl;
+	cout << setw(5) << "" << "us: user\n";
+	cout << setw(5) << "" << "sy: system\n";
+	cout << setw(5) << "" << "id: idle\n";
+	cout << setw(5) << "" << "wa: iowait\n";
+	cout << setw(5) << "" << "si: softirq\n";
+	cout << setw(5) << "" << "cs: ctxt\n";
 }
